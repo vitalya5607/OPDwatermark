@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+
+{% block html_attribs %} lang="ru"{% endblock %}
+
+{% block title %}
+{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-fixed-top">
+    <!-- ... -->
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container-sm">
+    <div class="text-center">
+        <h1>Наложение текста ("водяного знака") на файлы изображений</h1>
+    </div>
+    <form action="" method=post enctype=multipart/form-data>
+        <div class="mb-3">
+            <label for="file" class="form-label">Загрузите файл изображения</label>
+            <input class="form-control" type="file" id="file" name="file">
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="watermark" placeholder="watermark" name="watermark">
+            <label for="floatingInput">Водяной знак</label>
+        </div>
+
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-primary">Обработать</button>
+        </div>
+        <br>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        Опции
+                    </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <label class="form-label">Стартовая позиция наложения</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">x</span>
+                            <input type="text" aria-label="start_x" class="form-control" placeholder="50"
+                                name="start_x">
+                            <span class="input-group-text">y</span>
+                            <input type="text" aria-label="start_y" class="form-control" placeholder="50"
+                                name="start_y">
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="fill" id="exampleRadios1"
+                                value="optionAll" checked>
+                            <label class="form-check-label" for="exampleRadios1">
+                                Заполнять целиком
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="fill" id="exampleRadios2"
+                                value="optionOne">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Один раз
+                            </label>
+                        </div>
+                        <label for="customRange3" class="form-label">Размер шрифта</label>
+                        <input type="range" class="form-range" min="1" max="10" step="1" id="customRange3"
+                            name="font_ratio">
+                        <label class="form-label">Шаг сдвига текста</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">x</span>
+                            <input type="text" aria-label="shift_step_x" class="form-control" placeholder="500"
+                                name="shift_step_x">
+                            <span class="input-group-text">y</span>
+                            <input type="text" aria-label="shift_step_y" class="form-control" placeholder="300"
+                                name="shift_step_y">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <link type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet" />
+  <script type=text/javascript src="{{ url_for('static', filename='js/jquery-3.6.0.js') }}"></script>
+  <title>{{title}}</title>
+  <meta charset="UTF-8">
+</head>
+
+<body class="bg-light">
+  <div class="container">
+    <header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="{{ url_for('index') }}" class="nav-link {{active_home}}">Home</a></li>
+      </ul>
+    </header>
+  </div>
+
+  <div class="b-example-divider"></div>
+  <hr class="my-4">
+
+  <div class="content">
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {% block content %}
+    {% endblock %}
+  </div>
+</body>
+
+</html>
